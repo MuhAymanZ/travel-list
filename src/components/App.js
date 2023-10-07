@@ -1,10 +1,11 @@
-import { useState } from "react";
 import Form from "./Form";
 import Logo from "./Logo";
 import PackingList from "./PackingList";
 import Stats from "./Stats";
+import { useLocalStorageState } from "./useLocalStorageState";
+
 function App() {
-	const [items, setItems] = useState([]);
+	const [items, setItems] = useLocalStorageState([], "listed");
 
 	function handleAddItems(item) {
 		setItems((items) => (items = [...items, item]));
